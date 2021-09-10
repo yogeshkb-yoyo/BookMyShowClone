@@ -3,6 +3,10 @@ import React from "react";
 class User extends React.Component{
     constructor(props){
         super(props);
+
+        this.state={
+          planet: "Earth",
+        };
     }
 
     render()  {
@@ -11,7 +15,8 @@ class User extends React.Component{
             <div>
             <h1>{this.props.name}</h1>
             <p>{this.props.description}</p>
-            </div>
+            <h4>{this.state.planet}</h4>
+           </div>
         );
     }
 }
