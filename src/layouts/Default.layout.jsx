@@ -4,6 +4,7 @@ const DefaultLayout = () =>{
     return(
         <div>
         <h1 className="text-xl">DefaultLayout</h1>
+        {props.children}
         </div>
     );
 };
