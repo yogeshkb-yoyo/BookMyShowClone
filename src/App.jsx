@@ -1,9 +1,13 @@
+import {Route} from "react-router-dom";
+
+import DefaultHOC from "./HOC/Default.HOC";
+import Temp from "./components/temp";
 function App() {
   return (
-    <div className="App">
-    <h1 className="text-6xl">Hii</h1>
-    </div>
-  );
-}
+      <div>
+        <DefaultHOC path="/" exact component={Temp}/>
+      </div>
+    );
+};
 
 export default App;

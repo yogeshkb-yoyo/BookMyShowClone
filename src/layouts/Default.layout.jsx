@@ -1,9 +1,10 @@
 import React from "react";
+import Navbar from "../components/Navbar/navbar.component";
 
-const DefaultLayout = () =>{
+const DefaultLayout = (props) => {
     return(
         <div>
-        <h1 className="text-xl">DefaultLayout</h1>
+        <Navbar/>
         {props.children}
         </div>
     );
