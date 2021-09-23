@@ -40,37 +40,37 @@ export const Premier = () => {
 
     const PremierImages =[
         {
-            src:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSic48xoP4nRlRVaAmU1vU0YSvUd1QKPwa8iQ&usqp=CAU",
+            src:"https://m.media-amazon.com/images/M/MV5BMjE5MjkwODI3Nl5BMl5BanBnXkFtZTcwNjcwMDk4NA@@._V1_.jpg",
             alt:"POC",
             title:"Pirates of the caribbean",
             subtitle:"english",
         },
         {
-            src:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSic48xoP4nRlRVaAmU1vU0YSvUd1QKPwa8iQ&usqp=CAU",
+            src:"https://m.media-amazon.com/images/M/MV5BMjE5MjkwODI3Nl5BMl5BanBnXkFtZTcwNjcwMDk4NA@@._V1_.jpg",
             alt:"POC",
             title:"Pirates of the caribbean",
             subtitle:"english",
         },
         {
-            src:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSic48xoP4nRlRVaAmU1vU0YSvUd1QKPwa8iQ&usqp=CAU",
+            src:"https://m.media-amazon.com/images/M/MV5BMjE5MjkwODI3Nl5BMl5BanBnXkFtZTcwNjcwMDk4NA@@._V1_.jpg",
             alt:"POC",
             title:"Pirates of the caribbean",
             subtitle:"english",
         },
         {
-            src:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSic48xoP4nRlRVaAmU1vU0YSvUd1QKPwa8iQ&usqp=CAU",
+            src:"https://m.media-amazon.com/images/M/MV5BMjE5MjkwODI3Nl5BMl5BanBnXkFtZTcwNjcwMDk4NA@@._V1_.jpg",
             alt:"POC",
             title:"Pirates of the caribbean",
             subtitle:"english",
         },
         {
-            src:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSic48xoP4nRlRVaAmU1vU0YSvUd1QKPwa8iQ&usqp=CAU",
+            src:"https://m.media-amazon.com/images/M/MV5BMjE5MjkwODI3Nl5BMl5BanBnXkFtZTcwNjcwMDk4NA@@._V1_.jpg",
             alt:"POC",
             title:"Pirates of the caribbean",
             subtitle:"english",
         },
         {
-            src:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSic48xoP4nRlRVaAmU1vU0YSvUd1QKPwa8iQ&usqp=CAU",
+            src:"https://m.media-amazon.com/images/M/MV5BMjE5MjkwODI3Nl5BMl5BanBnXkFtZTcwNjcwMDk4NA@@._V1_.jpg",
             alt:"POC",
             title:"Pirates of the caribbean",
             subtitle:"english",
@@ -80,8 +80,8 @@ export const Premier = () => {
     return (
         <div>
             <div className="flex flex-col items-start">
-            <h3 className="text-white text-xl font-bold">Premier</h3>
-            <p className="text-white text-sm">Brand new release every film</p>
+            <h3 className="text-white text-xl font-bold">Premieres</h3>
+            <p className="text-white text-sm mb-3">Brand new release every Friday</p>
             </div>
             <Slider {...settings}>
                 {PremierImages.map((image)=> (
