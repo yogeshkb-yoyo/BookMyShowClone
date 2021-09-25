@@ -1,15 +1,15 @@
 const settings = {
     infinity: false,
-    autoplay:false,
+    speed: 500,
     slidesToShow:5,
-    sildesToscroll:2,
+    sildesToscroll:4,
     InitialSlide:0,
     responsive:[
         {
             breakpoints:1024,
             settings:{
             slidesToShow:3,
-            sildesToscroll:2,
+            sildesToscroll:3,
             infinite:true,
         },
     },
@@ -17,14 +17,14 @@ const settings = {
         breakpoints:600,
         settings:{
         slidesToShow:2,
-        sildesToscroll:1,
-        InitialSlide:1,
+        sildesToscroll:2,
+        InitialSlide:2,
         },
      },
      {
         breakpoints:480,
         settings:{
-        slidesToShow:2,
+        slidesToShow:3,
         sildesToscroll:1,
         },
      },
