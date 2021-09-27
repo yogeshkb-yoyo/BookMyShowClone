@@ -1,11 +1,10 @@
-import React from 'react'
+import MovieHero from "../MovieHero/MovieHero.component";
+
 
 const Movie = () => {
     return (
         <div>
-            <div>
-            
-            </div>
+            <MovieHero/>
         </div>
     )
 }
