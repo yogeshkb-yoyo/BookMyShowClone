@@ -8,7 +8,7 @@ const NavSm = () => {
         <div className="text-white flex items-center justify-between">
             <div>
             <h3 className="text-xl font-bold">Hello welcome</h3>
-            <span className="text-gray-400 text-xs flex items-center">Coimbatore<BiChevronDown/></span>
+            <span className="text-gray-400 text-xs flex items-center">Chennai<BiChevronDown/></span>
             </div>
             <div className="w-8 h-8">
              <BiSearchAlt2 className="w-full h-full"/>
@@ -43,7 +43,7 @@ const NavLg = () =>{
             </div>
             <div className="flex items-center gap-3">
             <div>
-            <span className="text-gray-200 text-xs flex items-center cursor-pointer hover:text-white">Coimbatore<BiChevronDown/></span>
+            <span className="text-gray-200 text-xs flex items-center cursor-pointer hover:text-white">Chennai<BiChevronDown/></span>
             </div>
             <button className="bg-red-500 text-white px-2 py-1 text-sm rounded">Sign in</button>
             <div className="w-8 h-8 text-white"> 
