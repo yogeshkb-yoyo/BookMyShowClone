@@ -1,8 +1,10 @@
-import React from 'react'
+import React , {useContext}from 'react'
+import { MovieContext } from '../../context/Movie.context';
 import MovieInfo from './MovieInfo.component';
 
 
 const MovieHero = () => {
+    const {movie} = useContext(MovieContext);
     return (
         <div>
             <div>
@@ -12,7 +14,7 @@ const MovieHero = () => {
                 </div>
                 <div className="w-full h-56 bg-black z-10 opacity-50 absolute bottom-0"/>
                     <img
-                        src="https://in.bmscdn.com/iedb/movies/images/extra/vertical_logo/mobile/thumbnail/xxlarge/the-conjuring-the-devil-made-me-do-it-et00122455-23-09-2021-11-09-16.jpg"
+                        src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
                         alt="poster"
                         className="w-full h-full" />
                     </div>
@@ -24,7 +26,7 @@ const MovieHero = () => {
                 <div className="w-full h-56 bg-black z-10 opacity-50 absolute bottom-0"/>
 
                     <img 
-                        src="https://in.bmscdn.com/iedb/movies/images/extra/vertical_logo/mobile/thumbnail/xxlarge/the-conjuring-the-devil-made-me-do-it-et00122455-23-09-2021-11-09-16.jpg"
+                    src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
                         alt="poster"
                         className="w-full h-full"
                     />    
@@ -35,7 +37,7 @@ const MovieHero = () => {
                     <div className="absolute z-30 left-12 top-12 flex items-center gap-7">
                         <div className="w-64 h-96 lg:ml-20">
                         <img 
-                        src="https://in.bmscdn.com/iedb/movies/images/extra/vertical_logo/mobile/thumbnail/xxlarge/the-conjuring-the-devil-made-me-do-it-et00122455-23-09-2021-11-09-16.jpg"
+                        src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
                         alt="poster"
                         className="w-full h-full rounded-xl"/>
                         </div>
@@ -48,7 +50,7 @@ const MovieHero = () => {
                     </div>
 
                     <img 
-                    src="https://in.bmscdn.com/iedb/movies/images/extra/horizontal_no_logo/mobile/listing/xxlarge/the-conjuring-the-devil-made-me-do-it-et00122455-23-09-2021-11-09-16.jpg"
+                    src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
                     alt="poster"
                     className="w-full h-full"
                     />  

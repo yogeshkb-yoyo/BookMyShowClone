@@ -1,6 +1,7 @@
-import React from 'react'
-
+import React,{useContext} from 'react';
+import { MovieContext } from '../../context/Movie.context';
 const MovieInfo = () => {
+    const {movie} = useContext(MovieContext);
     return (
         <div>
             <div className="flex flex-col gap-3 lg:gap-8">
