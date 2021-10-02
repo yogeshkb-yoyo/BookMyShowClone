@@ -2,8 +2,24 @@ import Cast from "../cast/Cast.component";
 import MovieHero from "../MovieHero/MovieHero.component";
 import TempPosters from "../../../src/config/TempPosters.config";
 import PosterSlider from "../PosterSlider/PosterSlider.component";
+import React,{useContext,useState,useEffect} from "react";
+import { MovieContext } from "../../context/Movie.context";
+import axios from "axios";
+import { useParams } from "react-router";
+
+
 
 const Movie = () => {
+    const {id} = useParams();
+    const {movie} = useContext(MovieContext);
+    const [cast,setCast] = useState([]);
+    
+    useEffect(()=>{
+        const requestCast = async () => {
+            const getCast = await axios.get(`/movie${id}/credits`)
+            setCast(getCast.data.cast);
+        };
+    });
 
     const settings = {
         infinity: false,
@@ -45,7 +61,7 @@ const Movie = () => {
                 <div className="my-12 container px-8 lg:ml-24 lg:w-2/3">
                     <div className="flex flex-col items-start gap-3">
                         <h2 className="text-gray-800 font-bold text-2xl">About the movie</h2>
-                        <p>Paranormal investigators Ed and Lorraine Warren are faced with one of their most challenging cases when a murder suspect claims to be possessed by a demon.</p>
+                        <p>{movie.overview}</p>
                     </div>
                     <div className="my-8">
                         <hr/>
