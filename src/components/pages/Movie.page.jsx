@@ -6,8 +6,7 @@ import React,{useContext,useState,useEffect} from "react";
 import { MovieContext } from "../../context/Movie.context";
 import axios from "axios";
 import { useParams } from "react-router";
-
-
+import Slider from "react-slick";
 
 const Movie = () => {
     const {id} = useParams();
@@ -19,7 +18,9 @@ const Movie = () => {
             const getCast = await axios.get(`/movie${id}/credits`)
             setCast(getCast.data.cast);
         };
-    });
+        requestCast();
+    },[]);
+    
 
     const settings = {
         infinity: false,
@@ -40,6 +41,40 @@ const Movie = () => {
                 breakpoint:600,
                 settings:{
                 slidesToShow:2,
+                slidesToscroll:2,
+                InitialSlide:2,
+                },
+            },
+            {
+                breakpoint:480,
+                settings:{
+                slidesToShow:2,
+                slidesToscroll:1,
+                },
+            },
+        ],
+    
+    };
+
+    const settingsCast = {
+        infinity: false,
+        speed: 500,
+        slidesToShow:4,
+        slidesToscroll:4,
+        InitialSlide:0,
+        responsive:[
+            {
+                breakpoint:1024,
+                settings:{
+                slidesToShow:4,
+                slidesToscroll:3,
+                infinite:true,
+                },
+            },
+            {
+                breakpoint:600,
+                settings:{
+                slidesToShow:5,
                 slidesToscroll:2,
                 InitialSlide:2,
                 },
@@ -87,22 +122,15 @@ const Movie = () => {
                         <h2 className="text-gray-800 font-bold text-2xl mb-2">Cast & Crew</h2>
                     </div>
                     <div className="flex flex-wrap gap-4">
-                    <Cast  
-                        image="https://in.bmscdn.com/iedb/artist/images/website/poster/large/patrick-wilson-4422-24-03-2017-12-35-32.jpg"
-                        castName="Patrick Wilson"
-                        role="Ed Warren"
-                    />
-                    <Cast  
-                    image="https://in.bmscdn.com/iedb/artist/images/website/poster/large/patrick-wilson-4422-24-03-2017-12-35-32.jpg"
-                    castName="Patrick Wilson"
-                    role="Ed Warren"
-                    />
-                    <Cast  
-                    image="https://in.bmscdn.com/iedb/artist/images/website/poster/large/patrick-wilson-4422-24-03-2017-12-35-32.jpg"
-                    castName="Patrick Wilson"
-                    role="Ed Warren"
-                    />
-                    
+                        <Slider {...settingsCast}>
+                            {cast.map((castdata)=> (
+                                <Cast  
+                                image={`https://image.tmdb.org/t/p/original/${castdata.profile_path}`}
+                                castName={castdata.original_name}
+                                role={castdata.character}
+                            />
+                        ))} 
+                        </Slider>
                     </div>
                 </div>
 

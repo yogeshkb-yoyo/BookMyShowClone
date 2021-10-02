@@ -14,7 +14,7 @@ const MovieHero = () => {
                 </div>
                 <div className="w-full h-56 bg-black z-10 opacity-50 absolute bottom-0"/>
                     <img
-                        src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
+                        src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
                         alt="poster"
                         className="w-full h-full" />
                     </div>
@@ -26,7 +26,7 @@ const MovieHero = () => {
                 <div className="w-full h-56 bg-black z-10 opacity-50 absolute bottom-0"/>
 
                     <img 
-                    src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
+                    src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
                         alt="poster"
                         className="w-full h-full"
                     />    
@@ -37,7 +37,7 @@ const MovieHero = () => {
                     <div className="absolute z-30 left-12 top-12 flex items-center gap-7">
                         <div className="w-64 h-96 lg:ml-20">
                         <img 
-                        src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
+                        src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
                         alt="poster"
                         className="w-full h-full rounded-xl"/>
                         </div>
