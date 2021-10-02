@@ -1,5 +1,6 @@
-import React from "react";
+import React , { useState, useEffect } from "react";
 import HeroSlider from "react-slick";
+import axios from "axios";
 
 //Component
 import {NextArrow,PrevArrow} from "./Arrows.component";
@@ -7,6 +8,18 @@ import {NextArrow,PrevArrow} from "./Arrows.component";
 
 
 const HeroCarousal = () =>{
+
+    const [images,setImages] = useState([]);
+
+    useEffect(()=>{
+
+        const requestNowPlayingMovies = async() => {
+            const getImages = await axios.get("/movie/now_playing");
+            setImages(getImages.data.results);
+        };
+        requestNowPlayingMovies();
+
+    },[]);
     
     const settingsLG = {
         arrows: true,
@@ -30,22 +43,14 @@ const HeroCarousal = () =>{
         nextArrow: <NextArrow/>,
         prevArrow: <PrevArrow/>,
       };
-
-      const images=[
-          "https://images.hdqwalls.com/wallpapers/thumb/custom-bike-4k-0v.jpg",
-          "https://images.hdqwalls.com/wallpapers/thumb/yamaha-mt-10-2019-w6.jpg",
-          "https://images.hdqwalls.com/wallpapers/thumb/yamaha-r1-valentino-rossi-bike-5k-13.jpg",
-          "https://images.hdqwalls.com/wallpapers/thumb/tech-noir-helmet-scifi-5k-n4.jpg",
-          "https://images.hdqwalls.com/wallpapers/bthumb/biker-4k-l4.jpg"
-      ];
-
+      
     return (
         <div>
             <div className="lg:hidden">
             <HeroSlider {...settings}>
             {images.map((image) =>(
                 <div className="w-full h-56 md:h-80 py-3">
-                    <img src={image} alt="testing" className="w-full h-full"/>
+                    <img src={`https://image.tmdb.org/t/p/original${image.backdrop_path}`} alt="testing" className="w-full h-full"/>
                 </div>
             ))}
              </HeroSlider>
@@ -55,7 +60,7 @@ const HeroCarousal = () =>{
             <HeroSlider {...settingsLG}>
             {images.map((image) =>(
                 <div className="w-full h-96 px-2 py-3">
-                    <img src={image} alt="testing" className="w-full h-full rounded-md"/>
+                    <img src={`https://image.tmdb.org/t/p/original${image.backdrop_path}`} alt="testing" className="w-full h-full rounded-md"/>
                 </div>
             ))}
             </HeroSlider>

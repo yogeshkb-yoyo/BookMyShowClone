@@ -46,7 +46,20 @@ const Plays = () => {
                         <div className="lg:w-3/12">
                             <h2 className="text-2xl font-bold mb-4">Filters</h2>
                             <div>
-                                <PlaysFilter/>
+                                <div className="py-1">
+                                    <PlaysFilter 
+                                    title="Date"
+                                    tags={["Today","Tomorrow","This Weekend"]}
+                                    />
+                                </div> 
+                                <div className="py-1">
+                                    <PlaysFilter 
+                                    title="Languages"
+                                    tags={["Tamil","Telugu","Hindi"]}
+                                    />
+                                </div>
+
+
                             </div>
                         </div>
                 </div>
