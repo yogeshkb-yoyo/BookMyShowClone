@@ -11,15 +11,39 @@ import Slider from "react-slick";
 const Movie = () => {
     const {id} = useParams();
     const {movie} = useContext(MovieContext);
-    const [cast,setCast] = useState([]);
+    const [cast, setCast] = useState([]);
+    const [similarMovies, setSimilarMovies] = useState([]);
+    const [recommendedMovies, setRecommendedMovies] = useState([]);
     
     useEffect(()=>{
-        const requestCast = async () => {
-            const getCast = await axios.get(`/movie${id}/credits`)
+        const requestCast = async () =>
+        {
+            const getCast = await axios.get(`/movie/${id}/credits`);
             setCast(getCast.data.cast);
         };
         requestCast();
-    },[]);
+    },[id]);
+
+    useEffect(()=>{
+
+        const requestSimilarMovies = async() => {
+            const getSimilarMovies = await axios.get(`/movie/${id}/similar`);
+            setSimilarMovies(getSimilarMovies.data.results);
+        };
+        requestSimilarMovies();
+        
+    },[id]);
+
+    useEffect(()=>{
+
+        const requestRecommendedMovies = async() => {
+            const getRecommendedMovies = await axios.get(`/movie/${id}/recommendations`);
+            setRecommendedMovies(getRecommendedMovies.data.results);
+        };
+        requestRecommendedMovies();
+        
+    },[id]);
+
     
 
     const settings = {
@@ -59,7 +83,7 @@ const Movie = () => {
     const settingsCast = {
         infinity: false,
         speed: 500,
-        slidesToShow:4,
+        slidesToShow:6,
         slidesToscroll:4,
         InitialSlide:0,
         responsive:[
@@ -121,7 +145,7 @@ const Movie = () => {
                     <div className="my-5">
                         <h2 className="text-gray-800 font-bold text-2xl mb-2">Cast & Crew</h2>
                     </div>
-                    <div className="flex flex-wrap gap-4">
+                
                         <Slider {...settingsCast}>
                             {cast.map((castdata)=> (
                                 <Cast  
@@ -131,7 +155,7 @@ const Movie = () => {
                             />
                         ))} 
                         </Slider>
-                    </div>
+                  
                 </div>
 
                 <div className="my-8">
@@ -139,7 +163,7 @@ const Movie = () => {
                 </div>
 
                 <div className="my-8">
-                    <PosterSlider config={settings} images={TempPosters} title="You might also like" isDark={false}/>
+                    <PosterSlider config={settings} images={similarMovies} title="You might also like" isDark={false}/>
                 </div>
 
                 <div className="my-8">
@@ -147,7 +171,7 @@ const Movie = () => {
                 </div>
 
                 <div className="my-8">
-                    <PosterSlider config={settings} images={TempPosters} title="BMS XCLUSIV" isDark={false}/>
+                    <PosterSlider config={settings} images={recommendedMovies} title="BMS XCLUSIV" isDark={false}/>
                 </div>
 
 
